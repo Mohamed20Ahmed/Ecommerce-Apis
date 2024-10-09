@@ -2,7 +2,7 @@ import crypto from "crypto";
 
 import { Request, Response, NextFunction } from "express";
 import asyncHandler from "express-async-handler";
-import jwt, { JwtPayload, Secret } from "jsonwebtoken";
+import jwt, { Secret } from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 import ApiError from "../utils/apiError";

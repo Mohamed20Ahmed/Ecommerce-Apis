@@ -1,6 +1,6 @@
 import path from "path";
 
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 
@@ -42,7 +42,7 @@ app.use("/api/v1/products", productRoute);
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/auth", authRoute);
 
-app.all("*", (req, res, next) => {
+app.all("*", (req: Request, res: Response, next: NextFunction) => {
   // create error and send it to global error handling middleware
   next(new ApiError(`Can't find this route ${req.originalUrl}`, 404));
 });
