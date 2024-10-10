@@ -27,7 +27,11 @@ const app = express();
 // middlewares
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "uploads")));
+app.use(
+  express.static(
+    path.join(__dirname.slice(0, __dirname.lastIndexOf("\\")), "uploads")
+  )
+);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

@@ -24,7 +24,7 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 // middlewares
 app.use(express_1.default.json());
-app.use(express_1.default.static(path_1.default.join(__dirname, "uploads")));
+app.use(express_1.default.static(path_1.default.join(__dirname.slice(0, __dirname.lastIndexOf("\\")), "uploads")));
 if (process.env.NODE_ENV === "development") {
     app.use((0, morgan_1.default)("dev"));
     console.log(`mode: ${process.env.NODE_ENV}`);
